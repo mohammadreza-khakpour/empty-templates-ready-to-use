@@ -10,7 +10,7 @@ namespace DatabaseConnectedLibraryApp
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
+            AddLibrariesWithBooks();
             Console.WriteLine("Bye Bye World!\n\t... press Enter to exit ...");
             Console.ReadKey();
         }

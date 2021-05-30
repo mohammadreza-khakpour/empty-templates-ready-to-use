@@ -11,8 +11,13 @@ namespace DatabaseConnectedLibraryApp
         public DbSet<Book> Books { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("data source=.;initial catalog=LibraryTest;integrated security=true");
+            optionsBuilder.UseSqlServer("data source=.;initial catalog=Library;integrated security=true");
             base.OnConfiguring(optionsBuilder);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(LibraryDbContext).Assembly);
         }
     }
 }
