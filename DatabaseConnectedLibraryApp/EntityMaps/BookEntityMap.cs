@@ -15,7 +15,7 @@ namespace DatabaseConnectedLibraryApp.EntityMaps
             builder.Property(_ => _.Id).ValueGeneratedOnAdd();
             builder.Property(_ => _.Title).HasMaxLength(20);
             builder.Property(_ => _.LibraryId).IsRequired();
-            builder.HasOne(_ => _.Library).WithMany().HasForeignKey(_ => _.LibraryId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(_ => _.Library).WithMany().HasForeignKey(_ => _.LibraryId).OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

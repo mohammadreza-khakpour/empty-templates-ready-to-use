@@ -23,8 +23,8 @@ namespace EmptyTemplatesReadyToUse.Migration.Migrations
             Create.Table("Books")
                 .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
                 .WithColumn("Title").AsString(20).Nullable()
-                .WithColumn("LibraryId").AsInt32().NotNullable()
-                .ForeignKey("FK_Libraries_Books", "Libraries", "Id").OnDelete(System.Data.Rule.Cascade);
+                .WithColumn("LibraryId").AsInt32().Nullable()
+                .ForeignKey("FK_Libraries_Books", "Libraries", "Id").OnDelete(System.Data.Rule.SetDefault);
         }
     }
 }
